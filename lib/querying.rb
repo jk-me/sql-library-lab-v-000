@@ -14,8 +14,9 @@ end
 
 
 def select_value_and_count_of_most_prolific_species
-  "select characters.species, count(characters.species) as num 
+  "select characters.species, count(characters.species) as num
   from characters
+  group by characters.species
   order by num desc
   limit 1"
 end
