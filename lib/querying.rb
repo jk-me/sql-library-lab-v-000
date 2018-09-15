@@ -1,12 +1,15 @@
 def select_books_titles_and_years_in_first_series_order_by_year
-  "select books.title, books.year 
-  from books join series on books.series_id = series.id 
-  where series.id = 1 
+  "select books.title, books.year
+  from books join series on books.series_id = series.id
+  where series.id = 1
   order by books.year"
 end
 
 def select_name_and_motto_of_char_with_longest_motto
-  "Write your SQL query here"
+  "select chracters.name, characters.motto
+  from characters 
+  order by (max(characters.motto)) desc
+  limit 1"
 end
 
 
