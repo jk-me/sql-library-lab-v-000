@@ -29,10 +29,12 @@ end
 
 def select_series_title_with_most_human_characters
   "select series.title
-  from series join characters on series.id = characters.series_id
-  group by series.title
-  order by count(characters.species) from characters where characters.species = 'human' desc
-  limit 1 "
+  from (
+    select series.title, count(characters.species) as num
+    from series join characters on series.id = characters.series_id
+    group by series.title
+    order by num desc
+    limit 1) "
 end
 
 def select_character_names_and_number_of_books_they_are_in
